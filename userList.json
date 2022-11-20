@@ -1,1 +1,47 @@
-[{"name":"Liliya","notes":[{"titel":"Java","text":"Rolig språk","date":"2022-10-19"},{"titel":"Kotlin","text":"Android","date":"2022-10-19"}]},{"name":"Lena","notes":[]},{"name":"Vadim","notes":[{"titel":"Ruby","text":"mitt favorit","date":"2022-10-19"},{"titel":"KOtlin ","text":"inte bra ","date":"2022-10-19"},{"titel":"Java","text":"the best!","date":"2022-10-19"}]}]
+[
+  {
+    "name": "Liliya",
+    "notes": [
+      {
+        "titel": "Java",
+        "text": "Rolig språk",
+        "date": "2022-10-19"
+      },
+      {
+        "titel": "Kotlin",
+        "text": "Android",
+        "date": "2022-10-19"
+      }
+    ]
+  },
+  {
+    "name": "Lena",
+    "notes": [
+      {
+        "titel": "qqwer",
+        "text": "qwwqwq3",
+        "date": "2022-10-19"
+      }
+    ]
+  },
+  {
+    "name": "Vadim",
+    "notes": [
+      {
+        "titel": "Ruby",
+        "text": "mitt favorit",
+        "date": "2022-10-19"
+      },
+      {
+        "titel": "KOtlin ",
+        "text": "inte bra ",
+        "date": "2022-10-19"
+      },
+      {
+        "titel": "Java",
+        "text": "the best!",
+        "date": "2022-10-19"
+      }
+    ]
+  }
+]

@@ -8,6 +8,10 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import static util.Util.*;
 
+/**
+ * Klassen Main huvud point för programmet.
+ *
+ */
 public class Main {
     static private Scanner scanner = new Scanner(System.in);
     static private ObjectMapper mapper = new ObjectMapper();
@@ -17,6 +21,10 @@ public class Main {
     static private String name;
     static private User currentUser = new User("Ingen", new ArrayList<>());
 
+    /**
+     * Huvudmedtoden  main som startar programmet.
+     * @param args inkommande values
+     */
     public static void main(String[] args) {
         try {
             usersList = List.of(mapper.readValue(USER_LIST_JSON, User[].class)).stream().collect(Collectors.toCollection(ArrayList::new));
@@ -37,7 +45,12 @@ public class Main {
         menuUsersOption();
     }
 
-    //Huvud menu
+
+    /**
+     * Metoden for huvudmenu  som visa olika alternativ för användare.
+     * Läsas values från Scanner.
+     * Try och Catch filtrerar fel format for inkommande values.
+     */
     static void showOptionsMainMenu() {
         optionsMainMenuShowText();
         try {
@@ -59,14 +72,20 @@ public class Main {
                     return;
             }
             showOptionsMainMenu();
-        } catch (InputMismatchException|IndexOutOfBoundsException e) {
+        } catch (InputMismatchException | IndexOutOfBoundsException e) {
             System.out.println(G + "Fel format,prova igen!");
             textEndP();
             scanner.next();
             showOptionsMainMenu();
         }
     }
-    //metoden som skapar nya användare
+
+    /**
+     * Metoden som skapar nya användare.
+     * Metoden wriyeValue sparar userList i Json format.
+     * Try och Catch filtrerar fel format for inkommande values.
+     */
+
     static void createNewUsersProfil() {
         textSpace();
         System.out.println("Vad heter du?");
@@ -86,11 +105,13 @@ public class Main {
             }
             showOptionsMainMenu();
         } else {
-            System.out.println("Fel format exception: " );
+            System.out.println("Fel format exception: ");
         }
     }
 
-    //Menu för användares val
+    /**
+     * Menu för användares val
+     */
     static void createNewUser() {
         textSpace();
         System.out.println(" \n\nVill du presentera dig?  :   " + O
@@ -108,7 +129,11 @@ public class Main {
                 exit();
         }
     }
-    //metoden som läser användars lista
+
+    /**
+     * Metoden som läser användars lista.
+     * Try och Catch filtrerar fel format for inkommande values.
+     */
     static void readListOfUsers() {
         int lenghtOfUserList = usersList.size();
         userListExistControll(lenghtOfUserList);
@@ -138,7 +163,7 @@ public class Main {
             } else {
                 menuUsersOption();
             }
-        } catch (InputMismatchException|IndexOutOfBoundsException e) {
+        } catch (InputMismatchException | IndexOutOfBoundsException e) {
             System.out.println(G + "Fel format,prova igen!");
             textEndP();
             scanner.next();
@@ -146,7 +171,11 @@ public class Main {
         }
     }
 
-    //Menu för användarens val
+    /**
+     * Metoden för användarens val.
+     * Try och Catch filtrerar fel format for inkommande values.
+     */
+
     static void menuUsersOption() {
         System.out.println(G + "Aktiv användare: " + C
                 + currentUser.getName() + R);
@@ -181,7 +210,10 @@ public class Main {
         }
     }
 
-    // metoden som läser användares inlägg
+    /**
+     * Metoden som läser användares inlägg.
+     */
+
     static void readUsersNote() {
         textSpace();
         System.out.println("Du har "
@@ -204,7 +236,7 @@ public class Main {
                         + "\n"
                         + noteList.get(index - 1).getDate());
                 textEndP();
-            }catch (InputMismatchException | IndexOutOfBoundsException e ) {
+            } catch (InputMismatchException | IndexOutOfBoundsException e) {
                 System.out.println(G + "Fel format,prova igen!");
                 textEndP();
                 scanner.next();
@@ -214,7 +246,12 @@ public class Main {
         } else System.out.println("Du har inga artiklar att visa");
     }
 
-    // metoden som sparar användares inlägg
+
+    /**
+     * Metoden som sparar användares inlägg
+     * Try och Catch filtrerar fel format for inkommande values.
+     * writeValue sparar users note i Json format.
+     */
     static void writeUsersNote() {
         textSpace();
         scanner.nextLine();
@@ -232,7 +269,10 @@ public class Main {
         textEnd();
     }
 
-    //metoden som stänger programmet
+
+    /**
+     * Metoden som stänger programmet.
+     */
     static void exit() {
         System.out.println(getColor()
                 + "Hej då, " + getColor()
